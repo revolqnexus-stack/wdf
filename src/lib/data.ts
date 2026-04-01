@@ -197,8 +197,18 @@ export const PRICING: PricingPlan[] = [
 ]
 
 export const TEAM: TeamMember[] = [
-  { name: 'EATHEN BABY', role: 'Founder', title: 'CO-FOUNDER' },
-  { name: 'AJMAL MULLAPATI', role: 'Founder', title: 'CO-FOUNDER' },
+  { 
+    name: 'EATHEN BABY', 
+    role: 'Founder', 
+    title: 'CO-FOUNDER',
+    image: '/images/founder-1.jpg'
+  },
+  { 
+    name: 'AJMAL MULLAPATI', 
+    role: 'Founder', 
+    title: 'CO-FOUNDER',
+    image: '/images/founder-2.jpg'
+  },
 ]
 
 export const AI_FLOW_STEPS: AIStep[] = [

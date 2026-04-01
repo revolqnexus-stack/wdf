@@ -74,7 +74,13 @@ interface TeamCardProps {
 function TeamCard({ member, index }: TeamCardProps) {
   return (
     <div className={`teamCard ${styles.teamCard}`}>
-      <div className={styles.teamImage} />
+      <div className={styles.teamImage}>
+        <img 
+          src={member.image} 
+          alt={member.name}
+          className={styles.teamImg}
+        />
+      </div>
       <h3 className={styles.teamName}>{member.name}</h3>
       <div className={styles.teamRole}>{member.role}</div>
       <div className={styles.teamTitle}>{member.title}</div>

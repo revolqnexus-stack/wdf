@@ -68,7 +68,13 @@ export default function AboutPage() {
 function TeamMember({ member }: { member: typeof TEAM[0] }) {
   return (
     <div className={styles.teamCard}>
-      <div className={styles.teamImage} />
+      <div className={styles.teamImage}>
+        <img 
+          src={member.image} 
+          alt={member.name}
+          className={styles.teamImg}
+        />
+      </div>
       <h3 className={styles.teamName}>{member.name}</h3>
       <div className={styles.teamRole}>{member.role}</div>
       <div className={styles.teamTitle}>{member.title}</div>

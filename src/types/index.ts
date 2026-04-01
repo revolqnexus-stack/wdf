@@ -34,6 +34,7 @@ export interface TeamMember {
   name: string
   role: string
   title: string
+  image: string
 }
 
 export interface AIStep {
