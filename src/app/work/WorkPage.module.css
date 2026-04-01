@@ -1,0 +1,94 @@
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 32px;
+  margin-top: 60px;
+}
+
+.workCard {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 12px;
+  transition: all var(--t-base) ease;
+}
+
+.workCard:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+}
+
+.workTag {
+  font-size: var(--text-xs);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 16px;
+  font-family: var(--font-mono);
+}
+
+.workName {
+  font-size: var(--text-xl);
+  margin-bottom: 16px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.byline {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.workDesc {
+  color: var(--muted);
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.workImage {
+  width: 100%;
+  height: 200px;
+  background: var(--bg3);
+  border-radius: 8px;
+  margin-bottom: 24px;
+}
+
+.workStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statNumber {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--accent);
+}
+
+.statLabel {
+  color: var(--muted);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.workLink {
+  color: var(--accent);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  transition: color var(--t-base) ease;
+}
+
+.workLink:hover {
+  color: var(--accent-hover);
+}

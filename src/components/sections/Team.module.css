@@ -1,0 +1,115 @@
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 60px;
+  margin: 60px 0;
+  align-items: start;
+}
+
+.teamCard {
+  text-align: center;
+  opacity: 0;
+}
+
+.teamImage {
+  width: 100%;
+  height: 300px;
+  background: var(--bg2);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.teamImage::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bg2) 0%, var(--bg3) 100%);
+  opacity: 0.8;
+}
+
+.teamName {
+  font-size: var(--text-xl);
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.teamRole {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.teamTitle {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.teamDesc {
+  text-align: center;
+  margin-top: 60px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.teamDesc p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-size: var(--text-sm);
+}
+
+.capacity {
+  color: var(--accent) !important;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 968px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .teamImage {
+    height: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .teamGrid {
+    gap: 32px;
+    margin: 40px 0;
+  }
+  
+  .teamImage {
+    height: 200px;
+  }
+  
+  .teamName {
+    font-size: var(--text-lg);
+  }
+  
+  .teamDesc {
+    margin-top: 40px;
+  }
+  
+  .teamDesc p {
+    font-size: 14px;
+  }
+}

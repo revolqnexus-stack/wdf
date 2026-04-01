@@ -1,0 +1,146 @@
+.story {
+  margin-bottom: 80px;
+}
+
+.story h2 {
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.storyText {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-size: var(--text-base);
+  max-width: 700px;
+}
+
+.teamSection {
+  margin-bottom: 80px;
+}
+
+.teamSection h2 {
+  margin-bottom: 40px;
+  color: var(--text);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+}
+
+.teamCard {
+  text-align: center;
+  padding: 40px 20px;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: all var(--t-base) ease;
+}
+
+.teamCard:hover {
+  border-color: var(--border2);
+  transform: translateY(-4px);
+}
+
+.teamImage {
+  width: 200px;
+  height: 200px;
+  background: var(--bg3);
+  border-radius: 50%;
+  margin: 0 auto 24px;
+  border: 2px solid var(--border);
+}
+
+.teamName {
+  font-size: var(--text-xl);
+  margin-bottom: 8px;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.teamRole {
+  color: var(--accent);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.teamTitle {
+  color: var(--muted);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.capacity {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.capacity h2 {
+  margin-bottom: 24px;
+  color: var(--text);
+}
+
+.capacityText {
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 32px;
+  font-size: var(--text-base);
+}
+
+.capacityHighlight {
+  font-size: var(--text-lg);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.contactLink {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--t-base) ease;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.contactLink:hover {
+  color: var(--accent-hover);
+}
+
+@media (max-width: 768px) {
+  .story {
+    margin-bottom: 60px;
+  }
+  
+  .teamSection {
+    margin-bottom: 60px;
+  }
+  
+  .teamGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  
+  .teamCard {
+    padding: 32px 20px;
+  }
+  
+  .teamImage {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .capacity {
+    padding: 0 20px;
+  }
+  
+  .capacityHighlight {
+    font-size: var(--text-base);
+  }
+}

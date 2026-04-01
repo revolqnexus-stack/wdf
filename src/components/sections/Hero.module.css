@@ -1,0 +1,144 @@
+.hero {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 20px;
+  opacity: 0;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 30px;
+}
+
+.line {
+  display: block;
+  opacity: 0;
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.italic {
+  font-style: italic;
+}
+
+.sub {
+  font-size: var(--text-xl);
+  color: var(--muted);
+  max-width: 600px;
+  margin-bottom: 40px;
+  line-height: 1.4;
+  opacity: 0;
+}
+
+.cta {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  opacity: 0;
+}
+
+.primaryBtn {
+  padding: 16px 32px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  transition: all var(--t-base) ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.ghostBtn {
+  padding: 16px 32px;
+  background: transparent;
+  color: var(--text);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  transition: all var(--t-base) ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.ghostBtn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.bottom {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0 var(--content-px);
+  opacity: 0;
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(48px, 12vw, 72px);
+  }
+  
+  .sub {
+    font-size: var(--text-lg);
+  }
+  
+  .cta {
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  .primaryBtn,
+  .ghostBtn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .bottom {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+}

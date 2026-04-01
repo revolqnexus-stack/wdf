@@ -1,0 +1,22 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(28, 1fr);
+  grid-template-rows: repeat(28, 1fr);
+  gap: 1px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dot {
+  width: 2px;
+  height: 2px;
+  background: #1e1e1e;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  will-change: transform, background-color;
+}
