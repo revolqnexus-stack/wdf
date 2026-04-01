@@ -1,0 +1,1745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLQ - Digital Agency Kerala | Web Development & AI Automation</title>
+    <meta name="description" content="We build digital systems that work while you sleep. Web development, AI automation, SEO, and brand strategy for Kerala businesses.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --bg2: #111111;
+            --bg3: #1a1a1a;
+            --border: #222222;
+            --border2: #333333;
+            --text: #f0f0f0;
+            --muted: #888888;
+            --dim: #555555;
+            --accent: #e8ff00;
+            --accent2: #d4eb00;
+            --white: #ffffff;
+            
+            --text-hero: clamp(72px, 12vw, 160px);
+            --text-display: clamp(40px, 6vw, 80px);
+            --text-xl: clamp(20px, 2.5vw, 32px);
+            --text-base: 15px;
+            --text-sm: 13px;
+            --text-xs: 11px;
+        }
+        
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: var(--text-base);
+            line-height: 1.6;
+            overflow-x: hidden;
+            opacity: 0;
+        }
+        
+        body.loaded {
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Typography */
+        h1, h2, h3 {
+            margin: 0;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+        
+        .bebas {
+            font-family: 'Bebas Neue', monospace;
+            font-weight: 400;
+        }
+        
+        .uppercase {
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+        
+        .accent {
+            color: var(--accent);
+        }
+        
+        .italic {
+            font-style: italic;
+        }
+        
+        /* Layout */
+        .container {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 0 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+        }
+        
+        section {
+            padding: 120px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        @media (max-width: 768px) {
+            section {
+                padding: 60px 0;
+            }
+        }
+        
+        .section-divider {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: var(--border);
+            transform-origin: left center;
+            transform: scaleX(0);
+        }
+        
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        
+        nav.scrolled {
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(12px);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-family: 'Bebas Neue', monospace;
+            font-size: 24px;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        .nav-center {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .nav-center a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            position: relative;
+        }
+        
+        .nav-center a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.2s ease;
+        }
+        
+        .nav-center a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        .nav-cta {
+            padding: 8px 20px;
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-cta:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+        
+        @media (max-width: 768px) {
+            .nav-center {
+                display: none;
+            }
+        }
+        
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        
+        .loader-text {
+            font-family: 'Bebas Neue', monospace;
+            font-size: 48px;
+            color: var(--accent);
+        }
+        
+        /* Hero */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 0;
+        }
+        
+        .hero-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: grid;
+            grid-template-columns: repeat(60, 1fr);
+            grid-template-rows: repeat(60, 1fr);
+            gap: 1px;
+            pointer-events: none;
+        }
+        
+        .dot {
+            width: 1px;
+            height: 1px;
+            background: #1e1e1e;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: var(--accent);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-tag {
+            font-family: monospace;
+            font-size: var(--text-xs);
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+        }
+        
+        .hero-h1 {
+            font-family: 'Bebas Neue', monospace;
+            font-weight: 400;
+        }
+        
+        .hero-h1 .line1 {
+            font-size: var(--text-hero);
+            color: var(--text);
+            display: block;
+        }
+        
+        .hero-h1 .line2 {
+            font-size: var(--text-hero);
+            color: var(--accent);
+            display: block;
+        }
+        
+        .hero-h1 .line3 {
+            font-size: var(--text-hero);
+            font-style: italic;
+            display: block;
+        }
+        
+        .hero-sub {
+            font-size: var(--text-xl);
+            color: var(--muted);
+            max-width: 600px;
+            margin: 30px 0;
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        
+        .btn-primary {
+            padding: 16px 32px;
+            background: var(--accent);
+            color: var(--bg);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary:hover {
+            background: var(--accent2);
+            transform: translateY(-2px);
+        }
+        
+        .btn-ghost {
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--text);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            font-weight: 500;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-ghost:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .hero-bottom {
+            position: absolute;
+            bottom: 40px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--muted);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+        
+        /* Marquee */
+        .marquee {
+            background: var(--bg2);
+            padding: 40px 0;
+            overflow: hidden;
+        }
+        
+        .marquee-row {
+            display: flex;
+            white-space: nowrap;
+            will-change: transform;
+        }
+        
+        .marquee-row-1 {
+            animation: marqueeLeft 18s linear infinite;
+        }
+        
+        .marquee-row-2 {
+            animation: marqueeRight 14s linear infinite;
+        }
+        
+        @keyframes marqueeLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+        
+        .marquee-text {
+            padding: 0 40px;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--muted);
+        }
+        
+        /* Services */
+        .service-row {
+            padding: 24px 0;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .service-row:hover {
+            border-color: var(--border2);
+        }
+        
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-number {
+            color: var(--accent);
+            font-family: 'Bebas Neue', monospace;
+            font-size: 24px;
+            margin-right: 20px;
+        }
+        
+        .service-name {
+            flex: 1;
+        }
+        
+        .service-name h3 {
+            font-size: var(--text-xl);
+            margin-bottom: 4px;
+        }
+        
+        .service-sub {
+            color: var(--muted);
+            font-size: var(--text-sm);
+        }
+        
+        .service-arrow {
+            font-size: 24px;
+            color: var(--accent);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-row.expanded .service-arrow {
+            transform: rotate(45deg);
+        }
+        
+        .service-content {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+        
+        .service-row.expanded .service-content {
+            max-height: 200px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+        
+        .service-description {
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+        
+        .service-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tag {
+            padding: 4px 12px;
+            background: var(--bg3);
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+        
+        /* Work */
+        .work-container {
+            display: flex;
+            gap: 32px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+        }
+        
+        .work-card {
+            min-width: 580px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 32px;
+            scroll-snap-align: start;
+            transition: all 0.3s ease;
+        }
+        
+        .work-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--border2);
+        }
+        
+        .work-tag {
+            font-size: var(--text-xs);
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 16px;
+        }
+        
+        .work-name {
+            font-size: var(--text-xl);
+            margin-bottom: 16px;
+        }
+        
+        .work-desc {
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+        
+        .work-stats {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .stat {
+            font-size: var(--text-sm);
+            color: var(--muted);
+        }
+        
+        .stat strong {
+            color: var(--text);
+            font-family: 'Bebas Neue', monospace;
+            font-size: 18px;
+        }
+        
+        .work-image {
+            width: 100%;
+            height: 200px;
+            background: var(--bg3);
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .work-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* AI Automation */
+        .ai-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        
+        @media (max-width: 968px) {
+            .ai-split {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        .ai-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+        
+        .ai-stat {
+            display: flex;
+            align-items: baseline;
+            gap: 16px;
+        }
+        
+        .ai-stat-number {
+            font-family: 'Bebas Neue', monospace;
+            font-size: 48px;
+            color: var(--accent);
+        }
+        
+        .ai-stat-label {
+            color: var(--muted);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+        
+        .flow-chart {
+            position: relative;
+        }
+        
+        .flow-step {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 20px;
+            margin-bottom: 16px;
+            position: relative;
+        }
+        
+        .flow-step::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 16px;
+            background: var(--border);
+        }
+        
+        .flow-step:last-child::after {
+            display: none;
+        }
+        
+        .flow-number {
+            color: var(--accent);
+            font-family: 'Bebas Neue', monospace;
+            font-size: 18px;
+            margin-bottom: 8px;
+        }
+        
+        .flow-text {
+            font-size: var(--text-sm);
+        }
+        
+        /* Pricing */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        @media (max-width: 968px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .pricing-card {
+            background: var(--bg2);
+            border: 1px solid var(--border);
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.popular {
+            border-color: var(--accent);
+            --glow-opacity: 0.3;
+            box-shadow: 0 0 0 1px rgba(232,255,0,var(--glow-opacity));
+        }
+        
+        .pricing-name {
+            font-size: var(--text-xl);
+            margin-bottom: 8px;
+        }
+        
+        .pricing-price {
+            font-family: 'Bebas Neue', monospace;
+            font-size: 36px;
+            color: var(--accent);
+            margin-bottom: 24px;
+        }
+        
+        .pricing-desc {
+            color: var(--muted);
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: var(--text-sm);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+        
+        .pricing-features li.excluded::before {
+            content: '×';
+            color: var(--dim);
+        }
+        
+        .ai-pricing {
+            text-align: center;
+            margin-top: 60px;
+            padding: 32px;
+            background: var(--bg2);
+            border: 1px solid var(--border);
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 60px;
+        }
+        
+        @media (max-width: 968px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .team-card {
+            text-align: center;
+        }
+        
+        .team-image {
+            width: 100%;
+            height: 300px;
+            background: var(--bg2);
+            border-radius: 8px;
+            margin-bottom: 24px;
+        }
+        
+        .team-name {
+            font-size: var(--text-xl);
+            margin-bottom: 8px;
+        }
+        
+        .team-role {
+            color: var(--muted);
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+        
+        .team-desc {
+            margin-top: 60px;
+            text-align: center;
+            color: var(--muted);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* CTA */
+        .cta {
+            text-align: center;
+            position: relative;
+        }
+        
+        .cta h2 {
+            font-family: 'Bebas Neue', monospace;
+            font-size: clamp(48px, 8vw, 96px);
+            line-height: 1;
+            margin-bottom: 40px;
+        }
+        
+        .cta-sub {
+            font-size: var(--text-xl);
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg2);
+            padding: 80px 0 40px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 968px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .footer-col h4 {
+            font-size: var(--text-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-col li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-col a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: var(--text-sm);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col a:hover {
+            color: var(--accent);
+        }
+        
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: var(--text-xs);
+            color: var(--muted);
+        }
+        
+        @media (max-width: 640px) {
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        /* Custom Cursor */
+        .cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+        }
+        
+        @media (max-width: 768px) {
+            .cursor {
+                display: none;
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: no-preference) {
+            /* All animations enabled */
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">REVOLQ <span id="loaderPercent">0%</span></div>
+    </div>
+    
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    
+    <!-- Navigation -->
+    <nav id="navigation">
+        <div class="container nav-container">
+            <a href="#" class="logo">REVOLQ</a>
+            <div class="nav-center">
+                <a href="#work">WORK</a>
+                <a href="#services">SERVICES</a>
+                <a href="#about">ABOUT</a>
+            </div>
+            <a href="https://wa.me/917995617374" class="nav-cta">LET'S TALK</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-grid" id="heroGrid"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-tag">DIGITAL AGENCY · KERALA · INDIA</div>
+                <h1 class="hero-h1">
+                    <span class="line1">REVOLQ</span>
+                    <span class="line2">Building systems</span>
+                    <span class="line3">that work.</span>
+                </h1>
+                <p class="hero-sub">Web development, AI automation, SEO, and brand strategy for Kerala businesses that refuse to be invisible.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn-primary">START A PROJECT →</a>
+                    <a href="#work" class="btn-ghost">VIEW OUR WORK</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-bottom">
+            <span>+91 79956 17374</span>
+            <span>SCROLL ↓</span>
+        </div>
+    </section>
+    
+    <!-- Marquee -->
+    <section class="marquee">
+        <div class="marquee-row marquee-row-1">
+            <span class="marquee-text">WEB DEVELOPMENT · AI AUTOMATION · SEO · BRAND STRATEGY ·</span>
+            <span class="marquee-text">WEB DEVELOPMENT · AI AUTOMATION · SEO · BRAND STRATEGY ·</span>
+            <span class="marquee-text">WEB DEVELOPMENT · AI AUTOMATION · SEO · BRAND STRATEGY ·</span>
+            <span class="marquee-text">WEB DEVELOPMENT · AI AUTOMATION · SEO · BRAND STRATEGY ·</span>
+        </div>
+        <div class="marquee-row marquee-row-2">
+            <span class="marquee-text">NEXT.JS · n8n · CLAUDE AI · KERALA · GOOGLE MAPS · VERCEL ·</span>
+            <span class="marquee-text">NEXT.JS · n8n · CLAUDE AI · KERALA · GOOGLE MAPS · VERCEL ·</span>
+            <span class="marquee-text">NEXT.JS · n8n · CLAUDE AI · KERALA · GOOGLE MAPS · VERCEL ·</span>
+            <span class="marquee-text">NEXT.JS · n8n · CLAUDE AI · KERALA · GOOGLE MAPS · VERCEL ·</span>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-label uppercase text-xs muted">WHAT WE DO</div>
+            <h2 class="text-display bebas">Diagnosis & <span class="italic accent">Unrivaled Cure.</span></h2>
+        </div>
+        <div class="container">
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">01</span>
+                        <div class="service-name">
+                            <h3>Digital Ecosystem Architecture</h3>
+                            <div class="service-sub">Custom Web Development</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">Templates bleed revenue. We engineer bespoke Next.js applications built strictly for millisecond load times and relentless conversion.</p>
+                    <div class="service-tags">
+                        <span class="tag">Custom Next.js</span>
+                        <span class="tag">React Server Components</span>
+                        <span class="tag">Vercel Edge</span>
+                        <span class="tag">Lighthouse 95+</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">02</span>
+                        <div class="service-name">
+                            <h3>Algorithmic Positioning</h3>
+                            <div class="service-sub">Technical SEO & Local Search</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">Being on page two is mathematically identical to not existing. We dominate the search algorithm through technical precision.</p>
+                    <div class="service-tags">
+                        <span class="tag">JSON-LD Schema</span>
+                        <span class="tag">GBP Optimization</span>
+                        <span class="tag">Technical Crawl Audits</span>
+                        <span class="tag">Competitor Gap</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">03</span>
+                        <div class="service-name">
+                            <h3>Autonomous Operations</h3>
+                            <div class="service-sub">AI Agents & Workflow Automation</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">We build digital systems that work while you sleep. AI agents that capture leads, process data, and close sales 24/7.</p>
+                    <div class="service-tags">
+                        <span class="tag">WhatsApp AI Agents</span>
+                        <span class="tag">n8n CRM</span>
+                        <span class="tag">Automated Lead Routing</span>
+                        <span class="tag">24/7 Uptime</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">04</span>
+                        <div class="service-name">
+                            <h3>Brand Brutalism</h3>
+                            <div class="service-sub">Visual Identity & Market Positioning</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">Polite brands get ignored. We engineer visual identities that cut through the noise and position you as the undisputed authority.</p>
+                    <div class="service-tags">
+                        <span class="tag">Strategic Positioning</span>
+                        <span class="tag">Typography Systems</span>
+                        <span class="tag">Brand Guidelines</span>
+                        <span class="tag">Contrast Analysis</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">05</span>
+                        <div class="service-name">
+                            <h3>Conversion Telemetry</h3>
+                            <div class="service-sub">UX Copywriting & Flow Optimization</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">Traffic is useless if it bounces. We map user psychology and eliminate structural friction to turn visitors into clients.</p>
+                    <div class="service-tags">
+                        <span class="tag">High-Intent UX Copy</span>
+                        <span class="tag">Behavioral Flow Mapping</span>
+                        <span class="tag">Friction Audits</span>
+                        <span class="tag">CRO</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="service-row">
+                <div class="service-header">
+                    <div style="display: flex; align-items: center;">
+                        <span class="service-number">06</span>
+                        <div class="service-name">
+                            <h3>Continuous Iteration</h3>
+                            <div class="service-sub">Monthly Retainer & Ecosystem Management</div>
+                        </div>
+                    </div>
+                    <span class="service-arrow">→</span>
+                </div>
+                <div class="service-content">
+                    <p class="service-description">Digital dominance requires relentless iteration. We act as your off-site engineering team, outpacing the market month over month.</p>
+                    <div class="service-tags">
+                        <span class="tag">Technical Maintenance</span>
+                        <span class="tag">Algorithmic Adjustments</span>
+                        <span class="tag">AI Training</span>
+                        <span class="tag">Priority Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Work Section -->
+    <section id="work">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-label uppercase text-xs muted">SELECTED WORK</div>
+            <h2 class="text-display bebas">The work. <span class="italic accent">Built for real businesses.</span></h2>
+        </div>
+        <div class="container">
+            <div class="work-container">
+                <div class="work-card">
+                    <div class="work-tag">BRIDAL STUDIO · PALA, KERALA · 2025</div>
+                    <h3 class="work-name">NIXTUDIO by Nikita Liby</h3>
+                    <p class="work-desc">Redefining the digital presence for Kerala's premier bridal studio. Complete web, SEO, and AI automation system.</p>
+                    <div class="work-image"></div>
+                    <div class="work-stats">
+                        <div class="stat"><strong>464+</strong> Google Reviews</div>
+                        <div class="stat"><strong>4.9★</strong> Rating</div>
+                        <div class="stat"><strong>124%</strong> Traffic Growth</div>
+                        <div class="stat"><strong>3.2k</strong> Monthly Bookings</div>
+                    </div>
+                    <a href="https://nixtudio.in" class="work-link">VIEW LIVE PROJECT →</a>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-tag">DENTAL CLINIC · KOTTAYAM</div>
+                    <h3 class="work-name">Holy Family Dental</h3>
+                    <p class="work-desc">Modern dental clinic with comprehensive patient management and booking system.</p>
+                    <div class="work-image"></div>
+                    <div class="work-stats">
+                        <div class="stat"><strong>200+</strong> Patients</div>
+                        <div class="stat"><strong>4.8★</strong> Rating</div>
+                        <div class="stat"><strong>89%</strong> Online Bookings</div>
+                    </div>
+                    <a href="https://holy-family-dental-clinic.vercel.app" class="work-link">VIEW LIVE PROJECT →</a>
+                </div>
+                
+                <div class="work-card">
+                    <div class="work-tag">BRIDAL STUDIO · KERALA</div>
+                    <h3 class="work-name">Honeys Bridal Studio</h3>
+                    <p class="work-desc">Elegant bridal studio with integrated AI-powered consultation scheduling.</p>
+                    <div class="work-image"></div>
+                    <div class="work-stats">
+                        <div class="stat"><strong>150+</strong> Monthly Clients</div>
+                        <div class="stat"><strong>4.7★</strong> Rating</div>
+                        <div class="stat"><strong>76%</strong> Repeat Business</div>
+                    </div>
+                    <a href="https://honeysbridal.vercel.app" class="work-link">VIEW LIVE PROJECT →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- AI Automation Section -->
+    <section id="automation">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-label uppercase text-xs muted">AI AUTOMATION</div>
+            <h2 class="text-display bebas">Your business <span class="italic accent">at 3am.</span></h2>
+        </div>
+        <div class="container">
+            <div class="ai-split">
+                <div class="ai-left">
+                    <div class="ai-stats">
+                        <div class="ai-stat">
+                            <span class="ai-stat-number" data-target="24">0</span>
+                            <span class="ai-stat-label">/7 Active</span>
+                        </div>
+                        <div class="ai-stat">
+                            <span class="ai-stat-number" data-target="3">0</span>
+                            <span class="ai-stat-label">min Avg Response</span>
+                        </div>
+                        <div class="ai-stat">
+                            <span class="ai-stat-number" data-target="40">0</span>
+                            <span class="ai-stat-label">% More Repeat Clients</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flow-chart">
+                    <div class="flow-step">
+                        <div class="flow-number">①</div>
+                        <div class="flow-text">Customer sends WhatsApp message</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">②</div>
+                        <div class="flow-text">GPT-4 AI reads intent</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">③</div>
+                        <div class="flow-text">n8n checks availability</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">④</div>
+                        <div class="flow-text">Booking confirmed + payment link</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">⑤</div>
+                        <div class="flow-text">Staff gets WhatsApp alert</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">⑥</div>
+                        <div class="flow-text">Dashboard updated + calendar sync</div>
+                    </div>
+                    <div class="flow-step">
+                        <div class="flow-number">⑦</div>
+                        <div class="flow-text">Auto review request sent</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="pricing">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-label uppercase text-xs muted">INVESTMENT</div>
+            <h2 class="text-display bebas">Transparent pricing. <span class="italic accent">No surprises.</span></h2>
+        </div>
+        <div class="container">
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3 class="pricing-name">PRESENCE</h3>
+                    <div class="pricing-price">₹38,000</div>
+                    <p class="pricing-desc">Professional website that establishes your digital presence</p>
+                    <ul class="pricing-features">
+                        <li>Custom Next.js website (up to 5 pages)</li>
+                        <li>Mobile-first responsive</li>
+                        <li>Basic SEO</li>
+                        <li>Google Analytics</li>
+                        <li>Contact form</li>
+                        <li>1 month post-launch support</li>
+                        <li class="excluded">Custom animations</li>
+                        <li class="excluded">Advanced SEO</li>
+                        <li class="excluded">Content creation</li>
+                    </ul>
+                    <a href="#contact" class="btn-ghost" style="width: 100%; text-align: center;">GET STARTED</a>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: var(--accent); color: var(--bg); padding: 4px 16px; font-size: var(--text-xs); text-transform: uppercase; letter-spacing: 0.12em;">POPULAR</div>
+                    <h3 class="pricing-name">SIGNAL</h3>
+                    <div class="pricing-price">₹55,000</div>
+                    <p class="pricing-desc">Complete digital system with SEO and automation</p>
+                    <ul class="pricing-features">
+                        <li>Unlimited pages</li>
+                        <li>Advanced SEO & schema</li>
+                        <li>GBP optimization</li>
+                        <li>WhatsApp AI agent</li>
+                        <li>Custom animations</li>
+                        <li>3 months support</li>
+                        <li>Content strategy</li>
+                        <li>Performance optimization</li>
+                        <li>Monthly reporting</li>
+                    </ul>
+                    <a href="#contact" class="btn-primary" style="width: 100%; text-align: center;">GET STARTED</a>
+                </div>
+                
+                <div class="pricing-card">
+                    <h3 class="pricing-name">ORBIT</h3>
+                    <div class="pricing-price">₹1,20,000</div>
+                    <p class="pricing-desc">Premium digital ecosystem with ongoing management</p>
+                    <ul class="pricing-features">
+                        <li>Everything in SIGNAL</li>
+                        <li>6-month retainer</li>
+                        <li>Advanced automation</li>
+                        <li>Brand identity</li>
+                        <li>Photography coordination</li>
+                        <li>Video content</li>
+                        <li>Social media</li>
+                        <li>Paid ads strategy</li>
+                        <li>CRO</li>
+                    </ul>
+                    <a href="#contact" class="btn-ghost" style="width: 100%; text-align: center;">GET STARTED</a>
+                </div>
+            </div>
+            
+            <div class="ai-pricing">
+                <h3 class="pricing-name">AI Automation System</h3>
+                <div class="pricing-price">₹25,000 Setup + ₹10,000/month maintenance</div>
+                <p class="pricing-desc">Complete WhatsApp AI agent with CRM integration and 24/7 automation</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section id="about">
+        <div class="section-divider"></div>
+        <div class="container">
+            <div class="section-label uppercase text-xs muted">THE TEAM</div>
+            <h2 class="text-display bebas">Two people. <span class="italic accent">One system.</span></h2>
+        </div>
+        <div class="container">
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-image"></div>
+                    <h3 class="team-name">EATHEN BABY</h3>
+                    <div class="team-role">FOUNDER / CO-FOUNDER</div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image"></div>
+                    <h3 class="team-name">AJMAL MULLAPATI</h3>
+                    <div class="team-role">FOUNDER / CO-FOUNDER</div>
+                </div>
+            </div>
+            <p class="team-desc">REVOLQ is two people in Kerala who got tired of watching great local businesses go invisible online. We build the digital systems that change that.</p>
+            <p class="team-desc">Currently taking selected projects for Q4 2025</p>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section id="contact" class="cta">
+        <div class="section-divider"></div>
+        <div class="container">
+            <h2>Let's build<br>legacy.</h2>
+            <p class="cta-sub">Your competitors are online. Your customers are searching. Let's make sure they find you.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/917995617374" class="btn-primary cta-btn">START A PROJECT</a>
+                <a href="https://wa.me/917995617374" class="btn-ghost cta-btn">WHATSAPP US</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>REVOLQ</h4>
+                    <p style="color: var(--muted); margin-bottom: 16px;">We build digital systems that work while you sleep.</p>
+                    <p style="color: var(--muted); font-size: var(--text-sm);">Kerala, India · 2025</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Navigate</h4>
+                    <ul>
+                        <li><a href="#work">Work</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Digital Ecosystem Architecture</a></li>
+                        <li><a href="#services">Algorithmic Positioning</a></li>
+                        <li><a href="#services">Autonomous Operations</a></li>
+                        <li><a href="#services">Brand Brutalism</a></li>
+                        <li><a href="#services">Conversion Telemetry</a></li>
+                        <li><a href="#services">Continuous Iteration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+917995617374">+91 79956 17374</a></li>
+                        <li><a href="tel:+917306085895">+91 73060 85895</a></li>
+                        <li>Kerala, India</li>
+                        <li><a href="https://wa.me/917995617374">WHATSAPP US →</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 REVOLQ. All rights reserved.</span>
+                <span>Designed & built by REVOLQ</span>
+            </div>
+        </div>
+    </footer>
+    
+    <script type="module">
+        import { animate, createTimeline, stagger, createScrollObserver, onScroll, createSpring, createDraggable, createScope } from 'https://cdn.jsdelivr.net/npm/animejs@4/+esm';
+        
+        // Global scope for animations
+        const scope = createScope();
+        
+        // Initialize when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            init();
+        });
+        
+        function init() {
+            initLoader();
+            initHeroGrid();
+            initScrollAnimations();
+            initInteractions();
+            initCustomCursor();
+            initMarquee();
+            initServices();
+            initCounters();
+        }
+        
+        // Loader animation
+        function initLoader() {
+            const loader = document.getElementById('loader');
+            const loaderPercent = document.getElementById('loaderPercent');
+            let percent = 0;
+            
+            const counterAnim = animate({ value: 0 }, {
+                value: 100,
+                duration: 1000,
+                ease: 'outExpo',
+                onUpdate: () => {
+                    percent = Math.round(counterAnim.animations[0].currentValue);
+                    loaderPercent.textContent = percent + '%';
+                },
+                onComplete: () => {
+                    animate(loader, {
+                        y: [0, '-100%'],
+                        opacity: [1, 0],
+                        duration: 600,
+                        ease: 'inOutQuad',
+                        complete: () => {
+                            loader.style.display = 'none';
+                            document.body.classList.add('loaded');
+                            startHeroAnimation();
+                        }
+                    });
+                }
+            });
+        }
+        
+        // Hero dot grid
+        function initHeroGrid() {
+            const grid = document.getElementById('heroGrid');
+            const dots = [];
+            
+            // Create 60x60 grid
+            for (let i = 0; i < 3600; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'dot';
+                grid.appendChild(dot);
+                dots.push(dot);
+            }
+            
+            // Mouse interaction
+            document.addEventListener('mousemove', (e) => {
+                const rect = grid.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const cellWidth = rect.width / 60;
+                const cellHeight = rect.height / 60;
+                const col = Math.floor(x / cellWidth);
+                const row = Math.floor(y / cellHeight);
+                
+                // Activate nearest 9 dots
+                for (let r = Math.max(0, row - 1); r <= Math.min(59, row + 1); r++) {
+                    for (let c = Math.max(0, col - 1); c <= Math.min(59, col + 1); c++) {
+                        const index = r * 60 + c;
+                        const dot = dots[index];
+                        if (dot && !dot.classList.contains('active')) {
+                            dot.classList.add('active');
+                            animate(dot, {
+                                scale: [1, 2.5, 1],
+                                duration: 600,
+                                ease: 'outElastic(1, 0.4)',
+                                complete: () => {
+                                    dot.classList.remove('active');
+                                }
+                            });
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Hero entrance animation
+        function startHeroAnimation() {
+            const heroTl = createTimeline({ defaults: { ease: 'outExpo' } });
+            
+            heroTl
+                .add('.hero-tag', { opacity: [0, 1], y: [20, 0], duration: 600 }, 0)
+                .add('.hero-h1 .line1', { opacity: [0, 1], y: [80, 0], duration: 900 }, 200)
+                .add('.hero-h1 .line2', { opacity: [0, 1], y: [80, 0], duration: 900 }, 350)
+                .add('.hero-h1 .line3', { opacity: [0, 1], y: [80, 0], duration: 900 }, 480)
+                .add('.hero-sub', { opacity: [0, 1], y: [30, 0], duration: 700 }, 700)
+                .add('.hero-cta', { opacity: [0, 1], y: [20, 0], duration: 600 }, 900)
+                .add('.hero-bottom', { opacity: [0, 1], duration: 500 }, 1100);
+            
+            // Navigation entrance
+            animate('nav', {
+                y: [-60, 0],
+                opacity: [0, 1],
+                duration: 800,
+                ease: 'outExpo',
+                delay: 1200
+            });
+        }
+        
+        // Scroll animations
+        function initScrollAnimations() {
+            // Navigation scroll effect
+            onScroll({
+                target: document,
+                offset: 80,
+                onEnter: () => {
+                    document.getElementById('navigation').classList.add('scrolled');
+                },
+                onLeave: () => {
+                    document.getElementById('navigation').classList.remove('scrolled');
+                }
+            });
+            
+            // Section dividers
+            animate('.section-divider', {
+                scaleX: [0, 1],
+                duration: 600,
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '85% bottom' })
+            });
+            
+            // Section headings
+            animate('h2, h3', {
+                opacity: [0, 1],
+                y: [40, 0],
+                duration: 700,
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '85% bottom' })
+            });
+            
+            // Section labels
+            animate('.section-label', {
+                opacity: [0, 1],
+                y: [20, 0],
+                duration: 500,
+                delay: 100,
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '85% bottom' })
+            });
+            
+            // Service rows
+            animate('.service-row', {
+                opacity: [0, 1],
+                x: [-40, 0],
+                duration: 600,
+                delay: stagger(80),
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '80% bottom' })
+            });
+            
+            // Work cards
+            animate('.work-card', {
+                opacity: [0, 1],
+                y: [60, 0],
+                duration: 700,
+                delay: stagger(150),
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '70% bottom' })
+            });
+            
+            // Flow steps
+            animate('.flow-step', {
+                opacity: [0, 1],
+                x: [40, 0],
+                duration: 600,
+                delay: stagger(100),
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '60% bottom' })
+            });
+            
+            // Pricing cards
+            animate('.pricing-card', {
+                scale: [0.92, 1],
+                opacity: [0, 1],
+                duration: 600,
+                delay: stagger(100),
+                ease: 'outBack(1.2)',
+                autoplay: onScroll({ enter: '70% bottom' })
+            });
+            
+            // Team cards
+            animate('.team-card:nth-child(1)', {
+                opacity: [0, 1],
+                x: [-80, 0],
+                duration: 700,
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '70% bottom' })
+            });
+            
+            animate('.team-card:nth-child(2)', {
+                opacity: [0, 1],
+                x: [80, 0],
+                duration: 700,
+                ease: 'outExpo',
+                autoplay: onScroll({ enter: '70% bottom' })
+            });
+        }
+        
+        // Interactive animations
+        function initInteractions() {
+            // Logo hover
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('mouseenter', () => {
+                const letters = logo.textContent.split('');
+                logo.innerHTML = letters.map((letter, i) => 
+                    `<span style="display: inline-block">${letter}</span>`
+                ).join('');
+                
+                animate(logo.querySelectorAll('span'), {
+                    scale: [1, 1.08, 1],
+                    duration: 300,
+                    delay: stagger(30),
+                    ease: 'outQuad'
+                });
+            });
+            
+            logo.addEventListener('mouseleave', () => {
+                logo.textContent = 'REVOLQ';
+            });
+            
+            // Popular card pulse
+            animate('.popular-card', {
+                '--glow-opacity': [0.3, 0.7, 0.3],
+                duration: 2000,
+                loop: true,
+                ease: 'inOutSine'
+            });
+            
+            // Magnetic CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-btn');
+            ctaButtons.forEach(btn => {
+                const btnAnimatable = createSpring(btn, { x: 0, y: 0 });
+                
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const dx = (e.clientX - centerX) * 0.3;
+                    const dy = (e.clientY - centerY) * 0.3;
+                    
+                    btnAnimatable.x = dx;
+                    btnAnimatable.y = dy;
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btnAnimatable.x = 0;
+                    btnAnimatable.y = 0;
+                });
+            });
+        }
+        
+        // Custom cursor
+        function initCustomCursor() {
+            const cursor = document.getElementById('cursor');
+            const cursorAnimatable = createSpring(cursor, { x: 0, y: 0 });
+            
+            document.addEventListener('mousemove', (e) => {
+                cursorAnimatable.x = e.clientX;
+                cursorAnimatable.y = e.clientY;
+            });
+            
+            // Hover effects
+            const interactiveElements = document.querySelectorAll('a, button, .service-row');
+            interactiveElements.forEach(el => {
+                el.addEventListener('mouseenter', () => {
+                    animate(cursor, {
+                        scale: [1, 3],
+                        opacity: [1, 0.4],
+                        duration: 200,
+                        ease: 'outQuad'
+                    });
+                });
+                
+                el.addEventListener('mouseleave', () => {
+                    animate(cursor, {
+                        scale: [3, 1],
+                        opacity: [0.4, 1],
+                        duration: 200,
+                        ease: 'outQuad'
+                    });
+                });
+            });
+        }
+        
+        // Marquee pause on hover
+        function initMarquee() {
+            const marqueeRows = document.querySelectorAll('.marquee-row');
+            let marqueeAnims = [];
+            
+            marqueeRows.forEach((row, index) => {
+                const direction = index === 0 ? -1 : 1;
+                const duration = index === 0 ? 18000 : 14000;
+                
+                const anim = animate(row, {
+                    translateX: direction === -1 ? [0, '-50%'] : ['-50%', 0],
+                    duration: duration,
+                    loop: true,
+                    ease: 'linear'
+                });
+                
+                marqueeAnims.push(anim);
+                
+                row.addEventListener('mouseenter', () => anim.pause());
+                row.addEventListener('mouseleave', () => anim.play());
+            });
+        }
+        
+        // Services accordion
+        function initServices() {
+            const serviceRows = document.querySelectorAll('.service-row');
+            
+            serviceRows.forEach(row => {
+                row.addEventListener('click', () => {
+                    const isExpanded = row.classList.contains('expanded');
+                    const content = row.querySelector('.service-content');
+                    const contentHeight = content.scrollHeight;
+                    
+                    if (isExpanded) {
+                        row.classList.remove('expanded');
+                        animate(content, {
+                            maxHeight: [contentHeight, 0],
+                            opacity: [1, 0],
+                            duration: 500,
+                            ease: 'inOutQuad'
+                        });
+                    } else {
+                        row.classList.add('expanded');
+                        animate(content, {
+                            maxHeight: [0, contentHeight],
+                            opacity: [0, 1],
+                            duration: 500,
+                            ease: 'inOutQuad'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Counter animations
+        function initCounters() {
+            const counters = document.querySelectorAll('.ai-stat-number');
+            
+            counters.forEach(counter => {
+                const target = parseInt(counter.dataset.target);
+                const counterObj = { value: 0 };
+                
+                animate(counterObj, {
+                    value: target,
+                    duration: 1500,
+                    ease: 'outExpo',
+                    round: 1,
+                    autoplay: onScroll({ enter: '70% bottom' }),
+                    onUpdate: () => {
+                        counter.textContent = Math.round(counterObj.value);
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
